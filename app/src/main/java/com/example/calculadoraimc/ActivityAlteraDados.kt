@@ -36,4 +36,15 @@ class ActivityAlteraDados():AppCompatActivity() {
     fun Cancelar(view: View){
         finish()
     }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        binding.textAlterado.setText(savedInstanceState.getString("TextoAlterado"))
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("TextoAlterado", binding.textAlterado.text.toString())
+    }
+
 }
